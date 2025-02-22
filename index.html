@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Blormfission</title>
+<style>
+#blormfission {
+	position: relative;
+}
+.blormfission-number {
+	position: absolute;
+	background: #0000;
+	border: 0;
+	font-size: 24px;
+	width: 90px;
+	outline: none;
+}
+#blormfission-popup-button {
+	position: absolute;
+	width: 72px;
+	height: 64px;
+	left: 256px;
+}
+#blormfission-popup {
+	position: absolute;
+	left: 110px;
+	top: 70px;
+	user-select: none;
+	-webkit-user-select: none;
+}
+</style>
+	</head>
+	<body>
+		<div id='blormfission'>
+			<input type='text' class='blormfission-number' id='blormfission-x' style='top: 80px; left: 20px;'>
+			<input type='text' class='blormfission-number' id='blormfission-y' style='top: 80px; left: 175px;'>
+			<span type='text' class='blormfission-number' id='blormfission-r' style='top: 132px; left: 98px;'></span>
+			<div id='blormfission-popup-button'></div>
+			<img draggable='false' src='ui.png'>
+			<img id='blormfission-popup' draggable='false' src='popup.png' style='display: none;'>
+		</div>
+		<script>
+{
+	const log10i = (x) => {
+		let r = 0;
+		while (x >= 10) {
+			x = x / 10 | 0;
+			r++;
+		}
+		return r;
+	}
+
+	const blormfiseDividend = (x, y) => {
+		// x = ABC, y = DEF
+		// a = ABCDEF
+		let a = x * Math.pow(10, log10i(y) + 1) + y;
+		let l = log10i(a);
+
+		// f = FEDCBA
+		let A = a;
+		let f = 0;
+		let d = 0;
+		// DO NOT REPLACE 'A !== 0' WITH 'A'!
+		// NaN is falsy too and the engine may think that NaN might arise here, and
+		// explicitly check for it each time, resulting in runtime penalties.
+		while (A !== 0) {
+			d = A % 10;
+			f = f * 10 + d;
+			A = A / 10 | 0;
+		}
+
+		// b = AFEDCB
+		let b = f % 10 * Math.pow(10, l) + (f / 10 | 0);
+
+		let r = 0;
+		for (let i = 0; i <= l; i++) {
+			r += Math.pow(10, i) * ((a % 10 - b % 10 + 10) % 10);
+			a = a / 10 | 0;
+			b = b / 10 | 0;
+		}
+		return r;
+	}
+
+	const xE = document.getElementById('blormfission-x');
+	const yE = document.getElementById('blormfission-y');
+	const rE = document.getElementById('blormfission-r');
+	const popupButtonE = document.getElementById('blormfission-popup-button');
+	const popupE = document.getElementById('blormfission-popup');
+
+	const update = () => {
+		const x = xE.value | 0;
+		const y = yE.value | 0;
+		rE.textContent = blormfiseDividend(x, y) + '/' + (x + y);
+	};
+	xE.addEventListener('input', update);
+	yE.addEventListener('input', update);
+
+	let popupShown = true;
+	popupButtonE.addEventListener('click', () => {
+		popupShown = !popupShown;
+		if (popupShown) {
+			popupE.style.display = 'none';
+		} else {
+			popupE.style.display = null;
+		}
+	});
+}
+		</script>
+	</body>
+</html>
