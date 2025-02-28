@@ -1,18 +1,29 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Blormfission</title>
-		<link rel="stylesheet" href="blormfission.css">
-		<script src="blormfission.js"></script>
-	</head>
-	<body>
-		<div id='blormfission'>
+
+<head>
+	<title>Blormfission</title>
+	<link rel="stylesheet" href="blormfission.css">
+	<script src="blormfission.js"></script>
+</head>
+
+<body>
+	<div id="blormfission">
+		<div id='blormfission-calc'>
+			<img id="blormfission-text" src="ui/Text.png" draggable='false'>
+			<img id="blormfission-x-bg" src="ui/X textbox.png" draggable='false'>
 			<input type='text' pattern='\d*' value='30' class='blormfission-number' id='blormfission-x'>
+			<img id="blormfission-y-bg" src="ui/Y textbox.png" draggable='false'>
 			<input type='text' pattern='\d*' value='13' class='blormfission-number' id='blormfission-y'>
-			<span type='text' class='blormfission-number' id='blormfission-r'>703/43</span>
-			<div id='blormfission-popup-button'></div>
-			<img draggable='false' src='ui.png'>
-			<img id='blormfission-popup' draggable='false' src='popup.png' style='display: none;'>
+			<img id="blormfission-r-bg" src="ui/Result textbox.png" draggable='false'>
+			<span id='blormfission-r' class='blormfission-number'>703/43</span>
+			<img id='blormfission-popup-button' src="ui/Popup button.png" draggable='false'>
+			<img id="blormfission-outline" src="ui/Outline.png" draggable='false'>
 		</div>
-	</body>
+		<div id="blormfission-popup" style='display: none;'>
+			<img id='blormfission-popup-text' draggable='false' src='ui/Popup.png'>
+		</div>
+	</div>
+</body>
+
 </html>
