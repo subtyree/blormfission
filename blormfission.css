@@ -87,6 +87,14 @@ img {
   top: calc((81 / 193) * 100%);
 }
 
+#blormfission-⩚ {
+  width: calc((29 / 332) * 100%);
+  height: calc((32 / 193) * 100%);
+  position: absolute;
+  left: calc((132 / 332) * 100%);
+  top: calc((83 / 193) * 100%);
+}
+
 #blormfission-y-bg {
   width: calc((117 / 332) * 100%);
   height: calc((40 / 193) * 100%);
@@ -123,6 +131,14 @@ img {
   top: calc((135 / 193) * 100%);
   rotate: -1deg;
   z-index: 1;
+}
+
+#blormfission-equals-sign {
+  width: calc((16 / 332) * 100%);
+  height: calc((15 / 193) * 100%);
+  position: absolute;
+  left: calc((302 / 332) * 100%);
+  top: calc((91 / 193) * 100%);
 }
 
 #blormfission-popup-button {
