@@ -1,0 +1,63 @@
+
+@font-face {
+  font-family: 'Mynerve';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(Mynerve-Regular.woff2) format('woff2');
+}
+
+#blormfission {
+  position: relative;
+  image-rendering: pixelated;
+}
+
+.blormfission-number {
+  position: absolute;
+  background: #0000;
+  border: 0;
+  outline: none;
+  font-family: 'Mynerve', 'Comic Sans', sans-serif;
+  font-weight: bolder;
+  font-size: 24px;
+  text-align: center;
+}
+
+#blormfission-x {
+  top: 81px;
+  left: 18px;
+  width: 93px;
+  height: 32px;
+}
+
+#blormfission-y {
+  top: 80px;
+  left: 173px;
+  width: 110px;
+  height: 32px;
+  rotate: 1.25deg;
+}
+
+#blormfission-r {
+  top: 135px;
+  left: 97px;
+  width: 105px;
+  height: 32px;
+  rotate: -1deg;
+}
+
+#blormfission-popup-button {
+  position: absolute;
+  width: 72px;
+  height: 64px;
+  left: 256px;
+}
+
+#blormfission-popup {
+  position: absolute;
+  left: 110px;
+  top: 70px;
+  user-select: none;
+  -webkit-user-select: none;
+  image-rendering: pixelated;
+}
